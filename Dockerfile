@@ -55,3 +55,5 @@ ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.12.410/aws-ja
 ADD https://repo1.maven.org/maven2/joda-time/joda-time/2.12.2/joda-time-2.12.2.jar /opt/keycloak/providers/
 ADD https://repo1.maven.org/maven2/org/jgroups/aws/s3/native-s3-ping/1.0.0.Final/native-s3-ping-1.0.0.Final.jar /opt/keycloak/providers/
 
+# copy the custom theme from theme folder
+COPY theme/ /opt/keycloak/themes/
