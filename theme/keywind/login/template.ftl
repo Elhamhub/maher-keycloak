@@ -9,6 +9,7 @@
 <#import "components/atoms/nav.ftl" as nav>
 <#import "components/molecules/locale-provider.ftl" as localeProvider>
 <#import "components/molecules/username.ftl" as username>
+<#import "/assets/icons/maher-logo-header.ftl" as maherHeader>
 
 <#macro
   registrationLayout
@@ -19,9 +20,10 @@
   showAnotherWayIfPresent=true
 >
   <#assign cardHeader>
-    <@logo.kw>
+    <#--  <@logo.kw>
       ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
-    </@logo.kw>
+    </@logo.kw>  -->
+    <#--  <@maherHeader.kw />  -->
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
       <@heading.kw>
         <#nested "header">
@@ -70,6 +72,7 @@
       <@document.kw script=script />
     </head>
     <@body.kw>
+      <@maherHeader.kw />
       <@container.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
         <@nav.kw>

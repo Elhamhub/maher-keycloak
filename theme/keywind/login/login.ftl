@@ -17,7 +17,7 @@
   section
 >
   <#if section="header">
-    ${msg("loginAccountTitle")}
+    <strong>${msg("loginAccountTitle")}</strong>
   <#elseif section="form">
     <#if realm.password>
       <@form.kw

@@ -655,8 +655,8 @@ select {
 }
 .bg-secondary-100 {
   --tw-bg-opacity: 1;
-  background: #F9F9F9;
-  background-image: url( './img/bg.svg' );
+  background: #f9f9f9;
+  background-image: url("./img/bg.svg");
   /* background-color: rgb(243 244 246 / var(--tw-bg-opacity)); */
 }
 .bg-white {
@@ -875,4 +875,13 @@ select {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+}
+
+.card-contianer {
+  border-radius: 16px;
+  padding-top: 40px;
+}
+
+.bg-gradient-maher {
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
 }
