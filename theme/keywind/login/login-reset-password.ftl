@@ -14,7 +14,7 @@
   ;
   section
 >
-  <#if section="header">
+  <#if section="header"  >
     ${msg("emailForgotTitle")}
   <#elseif section="form">
     <@form.kw action=url.loginAction method="post">
@@ -26,6 +26,7 @@
         message=kcSanitize(messagesPerField.get("username"))
         name="username"
         type="text"
+        icon="user"
         value=(auth?has_content && auth.showUsername())?then(auth.attemptedUsername, '')
       />
       <@buttonGroup.kw>
@@ -35,9 +36,11 @@
       </@buttonGroup.kw>
     </@form.kw>
   <#elseif section="info">
+  <p class="text-center text-sm text-secondary-500">
     ${msg("emailInstruction")}
+  </p>
   <#elseif section="nav">
-    <@link.kw color="secondary" href=url.loginUrl size="small">
+    <@link.kw color="primary" href=url.loginUrl size="small">
       ${kcSanitize(msg("backToLogin"))?no_esc}
     </@link.kw>
   </#if>

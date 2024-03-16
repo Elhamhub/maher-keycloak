@@ -12,7 +12,7 @@
         ${attrName}="${attrValue}"
       </#list>
     >
-    <label class="ml-2 text-secondary-600 text-sm" for="${name}">
+    <label class="ml-2 text-secondary-600 text-xs" for="${name}">
       ${label}
     </label>
   </div>

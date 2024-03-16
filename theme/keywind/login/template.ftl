@@ -9,7 +9,6 @@
 <#import "components/atoms/nav.ftl" as nav>
 <#import "components/molecules/locale-provider.ftl" as localeProvider>
 <#import "components/molecules/username.ftl" as username>
-<#import "/assets/icons/maher-logo-header.ftl" as maherHeader>
 
 <#macro
   registrationLayout
@@ -20,10 +19,7 @@
   showAnotherWayIfPresent=true
 >
   <#assign cardHeader>
-    <#--  <@logo.kw>
-      ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
-    </@logo.kw>  -->
-    <#--  <@maherHeader.kw />  -->
+    
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
       <@heading.kw>
         <#nested "header">
@@ -53,7 +49,7 @@
     <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
       <form action="${url.loginAction}" method="post">
         <input name="tryAnotherWay" type="hidden" value="on" />
-        <@button.kw color="primary" type="submit">
+        <@button.kw color="secondary" type="submit">
           ${msg("doTryAnotherWay")}
         </@button.kw>
       </form>
@@ -67,19 +63,21 @@
     </#if>
   </#assign>
 
-  <html>
+  <html<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}"</#if>>
     <head>
       <@document.kw script=script />
     </head>
     <@body.kw>
-      <@maherHeader.kw />
       <@container.kw>
+      <@logo.kw>
+        <#--  ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}  -->
+      </@logo.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
         <@nav.kw>
           <#nested "nav">
-          <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+          <#--  <#if realm.internationalizationEnabled && locale.supported?size gt 1>
             <@localeProvider.kw currentLocale=locale.current locales=locale.supported />
-          </#if>
+          </#if>  -->
         </@nav.kw>
       </@container.kw>
     </@body.kw>

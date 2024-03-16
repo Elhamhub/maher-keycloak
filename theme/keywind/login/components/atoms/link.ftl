@@ -14,6 +14,9 @@
     <#case "small">
       <#assign sizeClass="text-sm">
       <#break>
+       <#case "xsmall">
+      <#assign sizeClass="text-xs">
+      <#break>
     <#default>
       <#assign sizeClass="">
   </#switch>

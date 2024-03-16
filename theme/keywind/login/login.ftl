@@ -17,7 +17,7 @@
   section
 >
   <#if section="header">
-    <strong>${msg("loginAccountTitle")}</strong>
+    ${msg("loginAccountTitle")}
   <#elseif section="form">
     <#if realm.password>
       <@form.kw
@@ -39,6 +39,7 @@
           message=kcSanitize(messagesPerField.getFirstError("username", "password"))
           name="username"
           type="text"
+          icon="user"
           value=(login.username)!''
         />
         <@input.kw
@@ -46,6 +47,7 @@
           label=msg("password")
           name="password"
           type="password"
+          icon="password"
         />
         <#if realm.rememberMe && !usernameEditDisabled?? || realm.resetPasswordAllowed>
           <div class="flex items-center justify-between">
@@ -57,7 +59,7 @@
               />
             </#if>
             <#if realm.resetPasswordAllowed>
-              <@link.kw color="primary" href=url.loginResetCredentialsUrl size="small">
+              <@link.kw color="primary" href=url.loginResetCredentialsUrl size="xsmall">
                 ${msg("doForgotPassword")}
               </@link.kw>
             </#if>
@@ -72,7 +74,7 @@
     </#if>
   <#elseif section="info">
     <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-      <div class="text-center">
+      <div class="text-center text-xs">
         ${msg("noAccount")}
         <@link.kw color="primary" href=url.registrationUrl>
           ${msg("doRegister")}

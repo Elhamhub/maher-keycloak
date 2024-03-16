@@ -7,6 +7,9 @@
   <div class="gap-4 grid grid-cols-1">
     <#list providers as provider>
       <#switch provider.alias>
+        <#case "apple">
+          <#assign colorClass="hover:bg-provider-apple/10">
+          <#break>
         <#case "bitbucket">
           <#assign colorClass="hover:bg-provider-bitbucket/10">
           <#break>
@@ -28,7 +31,7 @@
         <#case "instagram">
           <#assign colorClass="hover:bg-provider-instagram/10">
           <#break>
-        <#case "linkedin">
+        <#case "linkedin-openid-connect">
           <#assign colorClass="hover:bg-provider-linkedin/10">
           <#break>
         <#case "microsoft">
@@ -60,15 +63,16 @@
       </#switch>
 
       <a
-        class="${colorClass} border border-secondary-200 flex justify-center py-2 rounded-lg hover:border-transparent bg-white"
+        class="${colorClass} border border-secondary-200 flex justify-center text-sm py-2 rounded-xxl hover:border-transparent"
         data-provider="${provider.alias}"
         href="${provider.loginUrl}"
         type="button"
       >
         <#if providerIcons[provider.alias]??>
-          <div class="h-6 w-6">
+          <div class="h-6 w-6 me-2">
             <@providerIcons[provider.alias] />
           </div>
+          ${provider.displayName!}
         <#else>
           ${provider.displayName!}
         </#if>
